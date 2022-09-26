@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: clone urg_node
+      git:
+        repo: https://github.com/ros-drivers/urg_node.git
+        dest: ros2_ws/src/urg_node
+        version: foxy-devel
+
+    - name: move workspace
+      shell:
+        cmd: cd ./ros2_ws
+      
+    - name: colcon build
+      shell: |
+        cd ./ros2_ws 
+        source /opt/ros/foxy/setup.bash
+        colcon build
