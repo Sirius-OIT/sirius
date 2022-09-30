@@ -16,7 +16,7 @@
     - name: clone kobuki_ros
       git:
         repo: https://github.com/Sirius-OIT/kobuki_ros.git
-        dest: sirius_ws/src/kobuki_core
+        dest: sirius_ws/src/kobuki_ros
         version: devel
 
     - name: clone kobuki_velocity_smoother

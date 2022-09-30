@@ -1,5 +1,4 @@
 #!/bin/bash
 
-mkdir -p ros2_ws/src
-cd ros2_ws
+mkdir -p sirius_ws/src
 ansible-playbook -i hosts main.yml 
