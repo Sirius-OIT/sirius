@@ -4,6 +4,7 @@
   #   - ros-distro: 'foxy'
   tasks: 
     - name: apt install
+      become: yes
       apt:
         update_cache: yes
         pkg:
