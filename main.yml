@@ -1,6 +1,14 @@
 ---
 - hosts: localhost
+  # vars:
+  #   - ros-distro: 'foxy'
   tasks: 
+    - name: apt install
+      apt:
+        update_cache: yes
+        pkg:
+        - ros-foxy-ecl-*
+
     - name: clone urg_node
       git:
         repo: https://github.com/Sirius-OIT/urg_node.git
