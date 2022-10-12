@@ -9,7 +9,7 @@
 - name: apt update
   become: yes
   apt:
-    update_chache: yes
+    update_cache: yes
 
 - name: install docker dependencies packages
   become: yes
@@ -30,7 +30,7 @@
 - name: add docker repository to APT source
   become: yes
   ansible.builtin.apt_repository:
-    repo: deb [arch={{deb_architecture.stdout}} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ubuntu_version.stdout}} stable
+    repo: deb [arch={{deb_architecture.stdout}}] https://download.docker.com/linux/ubuntu {{ubuntu_version.stdout}} stable
     state: present
 
 - name: apt update
@@ -47,8 +47,8 @@
       - containerd.io
       - docker-compose-plugin
   notify:
-    - add_user_to_docker-group
-    - restart_docker-daemon
+    - add_user_to_docker_group
+    - restart_docker_daemon
   changed_when: yes
 
 - meta: flush_handlers
