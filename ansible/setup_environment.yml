@@ -2,4 +2,4 @@
 - name: setup
   hosts: all
   roles:
-    - docker
+    - ros2
