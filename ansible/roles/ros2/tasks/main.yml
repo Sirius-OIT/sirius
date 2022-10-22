@@ -1,7 +1,2 @@
 - import_tasks: set_locale.yml
 - import_tasks: install.yml
-- name: build work space
-  shell: |
-    source /opt/ros/foxy/setup.bash
-    cd ./sirius_ws
-    colcon build

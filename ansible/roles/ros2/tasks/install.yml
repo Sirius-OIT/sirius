@@ -46,22 +46,43 @@
   become: yes
   apt:
     name: ros-foxy-desktop
-  state: present
 
 - name: install cartographer
   become: yes
   apt:
     name: ros-foxy-cartographer
-  state: present
 
 - name: install cartographer-ros
   become: yes
   apt:
     name: ros-foxy-cartographer-ros
-  state: present
+
+- name: install foxy navigation2
+  become: yes
+  apt:
+    name: ros-foxy-navigation2
+
+- name: install foxy nav2-bringup
+  become: yes
+  apt:
+    name: ros-foxy-nav2-bringup
+
+- name: install dynamixel-sdk
+  become: yes
+  apt:
+    name: ros-foxy-dynamixel-sdk
+
+- name: install turtlebot3 msg
+  become: yes
+  apt:
+    name: ros-foxy-turtlebot3-msgs
+
+- name: install dyagnostics
+  become: yes
+  apt:
+    name: ros-foxy-diagnostic-*
 
 - name: install ecl
   become: yes
   apt:
     name: ros-foxy-ecl-*
-  state: present
