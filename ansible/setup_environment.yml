@@ -1,0 +1,6 @@
+---
+- name: setup
+  hosts: all
+  roles:
+    - ros2
+    - git

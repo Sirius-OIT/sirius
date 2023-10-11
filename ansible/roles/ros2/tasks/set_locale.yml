@@ -1,0 +1,26 @@
+- name: apt update
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: apt install locales
+  become: yes
+  apt:
+    name: locales
+    state: present
+
+- name: create locale en_US.UTF-8
+  become: yes
+  locale_gen:
+    name: en_US.UTF-8
+  
+- name: change locale
+  become: yes
+  command: update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+- name : export locale
+  become: yes
+  shell : export LANG=en_US.UTF-8
+
+  
+
