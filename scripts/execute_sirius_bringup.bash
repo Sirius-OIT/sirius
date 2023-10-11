@@ -2,8 +2,11 @@
 
 trap bash SIGINT
 
-echo "ROS2 DISTRO is "$ROS_DISTRO
-
+echo -e "\e[96mROS2 DISTRO is $ROS_DISTRO\e[m"
+echo ""
+cat /home/sirius/sirius/text2.txt
+echo ""
+echo ""
 cat /home/sirius/sirius/text.txt
 echo ""
 echo ""
