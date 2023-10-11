@@ -2,7 +2,7 @@
   git:
     repo: https://github.com/Sirius-OIT/urg_node.git
     dest: ../sirius_ws/src/urg_node
-    version: foxy-devel
+    version: ros2-devel
 
 - name: clone urg_c
   git:
@@ -32,7 +32,7 @@
   git:
     repo: https://github.com/Sirius-OIT/kobuki_ros.git
     dest: ../sirius_ws/src/kobuki_ros
-    version: devel
+    version: humble-devel
 
 - name: clone kobuki_velocity_smoother
   git:
@@ -46,17 +46,48 @@
     dest: ../sirius_ws/src/kobuki_ros_interfaces
     version: devel
 
-- name: clone turtlebot3
+- name: clone ecl_tools
   git:
-    repo: https://github.com/Sirius-OIT/turtlebot3.git
-    dest: ../sirius_ws/src/turtlebot3
-    version: foxy-devel
+    repo: https://github.com/stonier/ecl_tools.git
+    dest: ../sirius_ws/src/ecl_toos
+    version: devel
+
+- name: clone ecl_core
+  git:
+    repo: https://github.com/stonier/ecl_core.git
+    dest: ../sirius_ws/src/ecl_core
+    version: devel
+
+- name: clone ecl_lite
+  git:
+    repo: https://github.com/stonier/ecl_lite.git
+    dest: ../sirius_ws/src/ecl_lite
+    version: devel
+
+- name: clone Sophus
+  git:
+    repo: https://github.com/Sirius-OIT/Sophus.git
+    dest: ../Sophus
+    version: main-1.x
 
 - name: add line to bashrc
-  lineinfile: dest={{ ansible_env.HOME }}/.bashrc line="source /opt/ros/foxy/setup.bash"
-  
+  lineinfile: dest={{ ansible_env.HOME }}/.bashrc line="source /opt/ros/humble/setup.bash"
+
+- name: Creates build directory
+  file:
+    path: ../Sophus/build
+    state: directory
+
+- name: build Sophus
+  become: yes
+  shell: |
+    cd ../Sophus/build
+    cmake ..
+    make install
+
+
 - name: colcon build
   shell: |
     cd ../sirius_ws 
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/humble/setup.bash
     colcon build

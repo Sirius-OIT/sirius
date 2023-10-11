@@ -25,17 +25,9 @@
   shell: lsb_release -cs
   register: ubuntu_version
 
-
-- name: add the repository to my sources list
-  become: yes
-  ansible.builtin.apt_repository:
-    repo: "deb [arch={{ deb_architecture.stdout }} signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu {{ ubuntu_version.stdout }} main"
-    state: present
-    update_cache: yes
-
 - name: add the repository to sources list
   become: yes
-  shell: "tee /etc/apt/sources.list.d/ros2.list > /dev/null"
+  shell: "deb [arch={{ deb_architecture.stdout }} signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu {{ ubuntu_version.stdout }} main | tee -a /etc/apt/sources.list.d/ros2.list > /dev/null"
 
 - name: apt update
   become: yes
@@ -45,47 +37,7 @@
 - name: install ros2
   become: yes
   apt:
-    name: ros-foxy-desktop
-
-- name: install cartographer
-  become: yes
-  apt:
-    name: ros-foxy-cartographer
-
-- name: install cartographer-ros
-  become: yes
-  apt:
-    name: ros-foxy-cartographer-ros
-
-- name: install foxy navigation2
-  become: yes
-  apt:
-    name: ros-foxy-navigation2
-
-- name: install foxy nav2-bringup
-  become: yes
-  apt:
-    name: ros-foxy-nav2-bringup
-
-- name: install dynamixel-sdk
-  become: yes
-  apt:
-    name: ros-foxy-dynamixel-sdk
-
-- name: install turtlebot3 msg
-  become: yes
-  apt:
-    name: ros-foxy-turtlebot3-msgs
-
-- name: install dyagnostics
-  become: yes
-  apt:
-    name: ros-foxy-diagnostic-*
-
-- name: install ecl
-  become: yes
-  apt:
-    name: ros-foxy-ecl-*
+    name: ros-humble-desktop
 
 - name: install colcon
   become: yes
