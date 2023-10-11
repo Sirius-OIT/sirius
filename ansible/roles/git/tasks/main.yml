@@ -69,25 +69,3 @@
     repo: https://github.com/Sirius-OIT/Sophus.git
     dest: ../Sophus
     version: main-1.x
-
-- name: add line to bashrc
-  lineinfile: dest={{ ansible_env.HOME }}/.bashrc line="source /opt/ros/humble/setup.bash"
-
-- name: Creates build directory
-  file:
-    path: ../Sophus/build
-    state: directory
-
-- name: build Sophus
-  become: yes
-  shell: |
-    cd ../Sophus/build
-    cmake ..
-    make install
-
-
-- name: colcon build
-  shell: |
-    cd ../sirius_ws 
-    source /opt/ros/humble/setup.bash
-    colcon build

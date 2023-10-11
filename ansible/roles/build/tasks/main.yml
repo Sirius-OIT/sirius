@@ -1,0 +1,21 @@
+- name: add line to bashrc
+  lineinfile: dest={{ ansible_env.HOME }}/.bashrc line="source /opt/ros/humble/setup.bash"
+
+- name: Creates build directory
+  file:
+    path: ../Sophus_build
+    state: directory
+
+- name: build Sophus
+  become: yes
+  shell: |
+    cd ../Sophus_build
+    cmake ../Sophus
+    make install
+
+
+- name: colcon build
+  shell: |
+    cd ../sirius_ws 
+    source /opt/ros/humble/setup.bash
+    colcon build

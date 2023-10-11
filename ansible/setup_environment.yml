@@ -4,3 +4,4 @@
   roles:
     - ros2
     - git
+    - build
