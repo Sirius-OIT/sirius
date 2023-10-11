@@ -1,0 +1,8 @@
+【SLAMの手順】
+1. ros2 launch sirius_bringup sirius_bringup.launch.pyをEnterで起動する
+2. ros2 launch slam_toolbox online_async.launch.pyをEnterで起動する
+
+【Navigationの手順】
+1. ros2 launch sirius_bringup sirius_bringup.launch.pyをEnterで起動する
+2. map_yaml_fileを指定する
+3. ros2 launch nav2_bringup bringup_launch.py map:=<指定したmap_yamlfile>をEnterで起動する
