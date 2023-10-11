@@ -1,0 +1,22 @@
+# ワークフロー名の設定
+name: github-actions-example
+
+# トリガーの設定
+# この場合は backend ディレクトリ配下に変更が加えたコミットが main ブランチにプッシュされた場合にワークフローを実行する。
+on:
+  push:
+    branches:  # パターンとブランチ名が一致した場合に実行する
+      - humble-devel
+    paths:
+      - sirius/**
+
+# ジョブの設定
+jobs:
+  example-job:                                 # 一意のジョブ ID
+    runs-on: ubuntu-22.04                      # ランナーの設定
+    env:                                       # ステップ間で共有する環境変数の設定
+      GREETING: Hello
+      FIRST_NAME: Satoshi
+    steps:
+      - name: Greeting
+        run: bash setup.bash
