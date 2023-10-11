@@ -75,7 +75,7 @@ function mode_select(){
 
 echo -e "\e[96mROS2 DISTRO is $ROS_DISTRO\e[m"
 echo ""
-cat /home/sirius/sirius/text2.txt
+bash /home/sirius/sirius/text2.bash
 echo ""
 echo ""
 mode_select
