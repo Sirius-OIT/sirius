@@ -4,10 +4,10 @@ trap bash SIGINT
 
 echo -e "\e[96mROS2 DISTRO is $ROS_DISTRO\e[m"
 echo ""
-bash ../text2.bash
+bash ../text/text2.bash
 echo ""
 echo ""
-cat ../text.txt
+cat ../text/text.txt
 echo ""
 echo ""
 

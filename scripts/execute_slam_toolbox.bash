@@ -75,7 +75,7 @@ function mode_select(){
 
 echo -e "\e[96mROS2 DISTRO is $ROS_DISTRO\e[m"
 echo ""
-bash ../text2.bash
+bash ../text/text2.bash
 echo ""
 echo ""
 mode_select
