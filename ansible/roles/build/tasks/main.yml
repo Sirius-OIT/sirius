@@ -18,6 +18,26 @@
   args:
     executable: /bin/bash
 
+- name: rosdep init
+  become: yes
+  shell: rosdep init
+
+- name: rosdep update
+  become: yes
+  shell: rosdep update
+
+- name: rosdep update
+  become: yes
+  shell: rosdep update
+
+- name: rosdep install
+  become: yes
+  shell: rosdep install -y -r -q --from-paths src --ignore-src --rosdistro humble -y
+
+- name: uninstall sophus
+  become: yes
+  shell: apt purge ros-humble-sophus
+
 - name: colcon build
   shell: |
     cd ../sirius_ws 

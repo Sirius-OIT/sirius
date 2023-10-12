@@ -52,3 +52,28 @@
   become: yes
   apt:
     name: ros-humble-diagnostic-*
+    
+- name: install ros-humble-geographic-*
+  become: yes
+  apt:
+    name: ros-humble-geographic-*
+
+- name: install libpcap-dev
+  become: yes
+  apt:
+    name: libpcap-dev
+
+- name: install ros-humble-bondcpp
+  become: yes
+  apt:
+    name: ros-humble-bondcpp
+
+- name: intstall ros-humble-behaviortree-cpp-v3
+  become: yes
+  apt:
+    name: ros-humble-behaviortree-cpp-v3
+
+- name: install python3-rosdep
+  become: yes
+  apt:
+    name: python3-rosdep
