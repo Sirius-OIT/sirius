@@ -25,9 +25,13 @@
   shell: lsb_release -cs
   register: ubuntu_version
 
-- name: add the repository to sources list
+- name: add the repository to my sources list
   become: yes
-  shell: "deb [arch={{ deb_architecture.stdout }} signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu {{ ubuntu_version.stdout }} main | tee -a /etc/apt/sources.list.d/ros2.list > /dev/null"
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ deb_architecture.stdout }} signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu {{ ubuntu_version.stdout }} main"
+    state: present
+    filename: ros2.list
+    update_cache: yes
 
 - name: apt update
   become: yes
