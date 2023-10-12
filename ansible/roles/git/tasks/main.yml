@@ -69,3 +69,21 @@
     repo: https://github.com/Sirius-OIT/Sophus.git
     dest: ../Sophus
     version: main-1.x
+
+- name: clone velodyne
+  git:
+    repo: https://github.com/Sirius-OIT/velodyne.git
+    dest: ../sirius_ws/src/velodyne
+    version: ros2
+
+- name: clone slam_toolbox
+  git:
+    repo: https://github.com/Sirius-OIT/slam_toolbox.git
+    dest: ../sirius_ws/src/slam_toolbox
+    version: ros2
+
+- name: clone navigation2
+  git:
+    repo: https://github.com/Sirius-OIT/navigation2.git
+    dest: ../sirius_ws/src/navigation2
+    version: main
