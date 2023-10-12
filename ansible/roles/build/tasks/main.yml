@@ -13,7 +13,7 @@
     cmake ../Sophus
     make install
 
-- name: set environment forROS 2
+- name: set environment for ROS 2
   shell: source /opt/ros/humble/setup.bash
   args:
     executable: /bin/bash
