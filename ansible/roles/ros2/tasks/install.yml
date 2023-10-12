@@ -47,3 +47,8 @@
   become: yes
   apt:
     name: python3-colcon-common-extensions
+
+- name: install ros2-humble-diagnostic-*
+  become: yes
+  apt:
+    name: ros-humble-diagnostic-*
