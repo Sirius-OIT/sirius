@@ -29,7 +29,7 @@
 
 - name: rosdep install
   become: yes
-  shell: rosdep install -y -r -q --from-paths src --ignore-src --rosdistro humble -y
+  shell: rosdep install -y -r -q --from-paths ../sirius_ws/src --ignore-src --rosdistro humble -y
 
 - name: uninstall sophus
   become: yes
