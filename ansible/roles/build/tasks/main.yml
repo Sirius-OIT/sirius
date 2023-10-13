@@ -38,4 +38,6 @@
 - name: colcon build
   shell: |
     cd ../sirius_ws 
-    colcon build --symlink-install
+    source /opt/ros/humble/setup.bash && colcon build --symlink-install
+  args:
+    executable: /bin/bash
