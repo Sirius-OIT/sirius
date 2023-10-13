@@ -33,7 +33,7 @@
 
 - name: uninstall sophus
   become: yes
-  shell: apt purge ros-humble-sophus
+  shell: apt -y purge ros-humble-sophus
 
 - name: colcon build
   shell: |
