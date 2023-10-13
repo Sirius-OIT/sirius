@@ -46,6 +46,12 @@
     dest: ../sirius_ws/src/kobuki_ros_interfaces
     version: devel
 
+- name: clone kobuki_ftdi
+  git:
+    repo: https://github.com/kobuki-base/kobuki_ftdi.git
+    dest: ../sirius_ws/src/kobuki_ftdi
+    version: devel
+
 - name: clone ecl_tools
   git:
     repo: https://github.com/stonier/ecl_tools.git

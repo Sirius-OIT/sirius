@@ -41,3 +41,12 @@
     source /opt/ros/humble/setup.bash && colcon build --symlink-install
   args:
     executable: /bin/bash
+
+- name: set udev-rules for kobuki
+  become: yes
+  shell: |
+    cp 60-kobuki.rules /etc/udev/rules.d
+    service udev reload
+    service udev restart
+  args:
+    executable: /bin/bash
