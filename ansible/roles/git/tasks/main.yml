@@ -92,4 +92,4 @@
   git:
     repo: https://github.com/Sirius-OIT/navigation2.git
     dest: ../sirius_ws/src/navigation2
-    version: humble-devel
+    version: humble
