@@ -45,7 +45,7 @@
 - name: set udev-rules for kobuki
   become: yes
   shell: |
-    cp 60-kobuki.rules /etc/udev/rules.d
+    cp ../sirius_ws/src/kobuki_ftdi/60-kobuki.rules /etc/udev/rules.d
     service udev reload
     service udev restart
   args:
