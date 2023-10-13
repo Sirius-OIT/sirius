@@ -21,10 +21,7 @@
 - name: rosdep init
   become: yes
   shell: rosdep init
-
-- name: rosdep update
-  become: yes
-  shell: rosdep update
+  ignore_errors: yes
 
 - name: rosdep update
   become: yes
